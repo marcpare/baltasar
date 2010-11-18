@@ -315,6 +315,10 @@ def parse(node):
       return "(%s)" % joined
     elif node[1] == 'min' or node[1] == 'max':
       return "%s(%s)" % (node[1], ",".join(map(str, arguments)))
+    elif node[1] == 'tanh':
+      return "%s(%s)" % (node[1], ",".join(map(str, arguments)))
+    else:
+      raise("Unknown function %s" % node[1])
 
 def quick_constraint(raw_equation):
   foo = ast(raw_equation)
